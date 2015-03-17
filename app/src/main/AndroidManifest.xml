@@ -54,37 +54,19 @@
         <activity
             android:name=".activity.doItMission05Activity"
             android:label="@string/title_activity_do_it_mission05" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".challenge.challenge05.challenge05"
-            android:label="@string/title_activity_challenge05" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".challenge05.challenge05"
-            android:label="@string/title_activity_challenge05" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".challenge.challenge05.MainActivity"
+            android:name=".challenge.challenge05.challente05"
             android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".challenge.test2.challenge05.challente05"
-            android:label="@string/title_activity_challente05" >
+            android:name=".challenge.challenge06.challenge06Activity"
+            android:label="@string/title_activity_challenge06" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
