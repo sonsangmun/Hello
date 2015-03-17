@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">안녕 안드로이드</string>
+
+    <string name="hello_world">안녕 안드로이드 전송!</string>
+    <string name="name">테스트</string>
+    <string name="action_settings">Settings</string>
+    <!-- 주석 테스트 -->
+    <!--테스트-->
+    <!-- 주석 단축키는 Ctrl + / -->
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="title_label_second">두번째 창</string>
+    <string name="button1">버튼1</string>
+    <string name="button2">버튼2</string>
+    <string name="button3">버튼3</string>
+    <string name="button4">버튼4</string>
+    <string name="button5">버튼5</string>
+
+    <string name="text1">텍스트1</string>
+    <string name="text2">텍스트2</string>
+    <string name="text3">텍스트3</string>
+    <string name="text4">텍스트4</string>
+    <string name="text5">텍스트5</string>
+    <string name="text6">텍스트6</string>
+
+
+    <string name="title_activity_relative_layout_exam">RelativeLayoutExamActivity</string>
+    <string name="title_activity_table_layout">TableLayoutActivity</string>
+    <string name="title1">국어</string>
+    <string name="title2">영어</string>
+    <string name="title3">수학</string>
+
+    <string name="lineDp">2dp</string>
+    <color name="titleBackColor">#FAF4C0</color>
+    <color name="defaultColor">#FFFFFF</color>
+    <string name="title_activity_frame_layout">FrameLayoutActivity</string>
+    <string name="title_activity_edit_text">EditTextActivity</string>
+    <string name="title_activity_test_exam">testExamActivity</string>
+    <string name="title_activity_activity_exam">ActivityExamActivity</string>
+    <string name="title_activity_target">TargetActivity</string>
+    <string name="title_activity_touch_event">TouchEventActivity</string>
+    <string name="title_activity_do_it_mission05">doItMission05Activity</string>
+    <string name="title_activity_challenge05">challenge05</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_challente05">challente05</string>
+</resources>
