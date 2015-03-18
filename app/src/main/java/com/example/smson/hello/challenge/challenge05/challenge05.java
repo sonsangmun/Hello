@@ -54,7 +54,7 @@ public class challenge05 extends ActionBarActivity {
         });
 
         // 시간 버튼
-        mDateBtn.setOnClickListener(new View.OnClickListener() {
+        mTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // onCreate에서 처음 세팅된 시간으로 계속 들어감... click 할때마다 들어가게 하려면

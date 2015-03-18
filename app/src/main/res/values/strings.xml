@@ -3,7 +3,7 @@
 
     <string name="hello_world">안녕 안드로이드 전송!</string>
     <string name="name">테스트</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">셋팅(Settings)</string>
     <!-- 주석 테스트 -->
     <!--테스트-->
     <!-- 주석 단축키는 Ctrl + / -->

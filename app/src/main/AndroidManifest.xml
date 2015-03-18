@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smson.hello" >
 
+    <!--웹브라우저 화면 구성-->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <!-- package 의 com.example.smson.hello 는 경로로도 사용된다. -->
     <application
         android:allowBackup="true"
@@ -58,14 +60,10 @@
         <activity
             android:name=".challenge.challenge05.challenge05"
             android:label="@string/title_activity_main" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".challenge.challenge06.challenge06Activity"
+            android:logo="@drawable/abc_btn_check_material"
             android:label="@string/title_activity_challenge06" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
