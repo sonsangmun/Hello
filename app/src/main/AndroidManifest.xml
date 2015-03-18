@@ -69,6 +69,7 @@
         </activity>
         <activity
             android:name=".listview.liveViewActivity"
+            android:theme="@style/Base.Theme.AppCompat"
             android:label="@string/title_activity_live_view" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
