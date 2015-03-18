@@ -5,10 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TextView
+        android:id="@+id/aniLine"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

@@ -2,8 +2,10 @@ package com.example.smson.hello.listview;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.smson.hello.R;
 
@@ -12,12 +14,16 @@ import java.util.ArrayList;
 public class liveViewActivity extends ActionBarActivity {
     private ListView mListView;
     private ArrayList<String> mNameList;
+    private TextView mAniLine;
+    private Animation mTranslationAnimation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_view);
 
         mListView = (ListView) findViewById(R.id.listView);
+        mAniLine = (TextView) findViewById(R.id.aniLine);
 
         // Data 준비
         mNameList = new ArrayList<>();
@@ -44,5 +50,10 @@ public class liveViewActivity extends ActionBarActivity {
         // View에 붙이기
         mListView.setAdapter(adapter);
 
+//        // Animation 객체 생성
+//        mTranslationAnimation = AnimationUtils.loadAnimation(getApplicationContext(),
+//                R.anim.sample_ani);
+//
+//        mListView.setAnimation(mTranslationAnimation);
     }
 }
