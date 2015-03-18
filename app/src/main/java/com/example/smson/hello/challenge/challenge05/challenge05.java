@@ -1,9 +1,5 @@
 package com.example.smson.hello.challenge.challenge05;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -17,7 +13,11 @@ import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
-public class challente05 extends ActionBarActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+public class challenge05 extends ActionBarActivity {
     private Button mDateBtn;
     private Button mTimeBtn;
     private Button mSaveBtn;
@@ -28,7 +28,7 @@ public class challente05 extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_challente05);
+        setContentView(R.layout.activity_challenge05);
 
         mDateBtn = (Button) findViewById(R.id.dateBtn);
         mTimeBtn = (Button) findViewById((R.id.timeBtn));
@@ -49,7 +49,7 @@ public class challente05 extends ActionBarActivity {
         mDateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(challente05.this, dateSetListener, year, month, day).show();
+                new DatePickerDialog(challenge05.this, dateSetListener, year, month, day).show();
             }
         });
 
@@ -61,7 +61,7 @@ public class challente05 extends ActionBarActivity {
                 // 이 안에서 계속 변수에 새로 값을 넣어야겠네
 
                 // false 하니깐 오전, 오후 안뜨네
-                new TimePickerDialog(challente05.this, timeSetListener, hour, minute, false).show();
+                new TimePickerDialog(challenge05.this, timeSetListener, hour, minute, false).show();
             }
         });
 
@@ -85,7 +85,7 @@ public class challente05 extends ActionBarActivity {
             tmpCalendar.set(year, monthOfYear, dayOfMonth);
 
             mDateBtn.setText(sf.format(tmpCalendar.getTime()));
-            Toast.makeText(challente05.this, sf.format(tmpCalendar.getTime()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(challenge05.this, sf.format(tmpCalendar.getTime()), Toast.LENGTH_SHORT).show();
         }
     };
 

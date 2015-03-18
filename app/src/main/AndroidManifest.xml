@@ -56,7 +56,7 @@
             android:label="@string/title_activity_do_it_mission05" >
         </activity>
         <activity
-            android:name=".challenge.challenge05.challente05"
+            android:name=".challenge.challenge05.challenge05"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
