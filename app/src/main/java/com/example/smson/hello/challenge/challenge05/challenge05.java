@@ -24,6 +24,7 @@ public class challenge05 extends ActionBarActivity {
     private EditText mInputName;
     private EditText mInputAge;
     private int year, month, day, hour, minute;
+    private View.OnClickListener onClickListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,42 +46,57 @@ public class challenge05 extends ActionBarActivity {
         mDateBtn.setText(year + "년 " + (month + 1) + "월 " + day + "일");
         mTimeBtn.setText(hour + " 시 " + minute + " 분");
 
-        // 생년월일 버튼
-        mDateBtn.setOnClickListener(new View.OnClickListener() {
+        // OnClickListener 에 대한 처리
+        onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(challenge05.this, dateSetListener, year, month, day).show();
-            }
-        });
+                if(v == mDateBtn) {
+                    new DatePickerDialog(challenge05.this, dateSetListener, year, month, day).show();
+                } else if(v == mTimeBtn) {
+                    // onCreate에서 처음 세팅된 시간으로 계속 들어감... click 할때마다 들어가게 하려면
+                    // 이 안에서 계속 변수에 새로 값을 넣어야겠네
 
-        // 시간 버튼
-        mTimeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // onCreate에서 처음 세팅된 시간으로 계속 들어감... click 할때마다 들어가게 하려면
-                // 이 안에서 계속 변수에 새로 값을 넣어야겠네
+                    // false 하니깐 오전, 오후 안뜨네
+                    new TimePickerDialog(challenge05.this, timeSetListener, hour, minute, false).show();
+                } else if(v == mSaveBtn) {
+                    if (mInputName.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "이름을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    } else if(mInputAge.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "나이를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String msg = "이름 : " + mInputName.getText().toString() + ", 나이 : " + mInputAge.getText().toString();
+                        msg += ", " + mDateBtn.getText().toString();
+                        msg += ", " + mTimeBtn.getText().toString();
+                        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    alert("버튼 클릭 장애!");
+                }
 
-                // false 하니깐 오전, 오후 안뜨네
-                new TimePickerDialog(challenge05.this, timeSetListener, hour, minute, false).show();
             }
-        });
+        };
 
-        // 저장버튼
-        mSaveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String msg = "이름 : " + mInputName.getText().toString() + ", 나이 : " + mInputAge.getText().toString();
-                msg += ", " + mDateBtn.getText().toString();
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-            }
-        });
+        // 생년월일 버튼 클릭시
+        mDateBtn.setOnClickListener(onClickListener);
+
+        // 시간 버튼 클릭시
+        mTimeBtn.setOnClickListener(onClickListener);
+
+        // 저장버튼 클릭시
+        mSaveBtn.setOnClickListener(onClickListener);
     }
 
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener(){
 
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            // String msg = String.format("%d 년 %d 월 %d 일", year, monthOfYear + 1, dayOfMonth);
+
+            // 날짜 형식 처리 type 1 : String.format
+//            String msg = String.format("%d 년 %d 월 %d 일", year, monthOfYear + 1, dayOfMonth);
+
+            // 날짜 형식 처리 type 2 : SimpleDataFormat
             SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일");
+
+
             GregorianCalendar tmpCalendar = new GregorianCalendar();
             tmpCalendar.set(year, monthOfYear, dayOfMonth);
 
@@ -101,15 +117,19 @@ public class challenge05 extends ActionBarActivity {
             datetime.set(Calendar.MINUTE, minute);
 
             if (datetime.get(Calendar.AM_PM) == Calendar.AM)
-                am_pm = "AM";
+                am_pm = "오전";
             else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
-                am_pm = "PM";
+                am_pm = "오후";
 
             String strHrsToShow = (datetime.get(Calendar.HOUR) == 0) ? "12" : datetime.get(Calendar.HOUR) + "";
-            strHrsToShow += " 시 " + datetime.get(Calendar.MINUTE) + " 분 " + am_pm;
+            strHrsToShow = am_pm + strHrsToShow + " 시 " + datetime.get(Calendar.MINUTE) + " 분 ";
 
             mTimeBtn.setText(strHrsToShow);
             //Toast.makeText(DatePickerActivity.this, msg, Toast.LENGTH_SHORT).show();
         }
     };
+
+    public void alert(String msg) {
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+    }
 }

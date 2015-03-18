@@ -22,6 +22,9 @@ public class challenge06Activity extends ActionBarActivity {
     private Button mMoveUrlBtn;
     private LinearLayout mUrlLayout;
 
+    /*
+     Git test
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class challenge06Activity extends ActionBarActivity {
         mMoveBtn = (Button) findViewById(R.id.xMoveBtn);
         mUrlLayout = (LinearLayout) findViewById(R.id.xUrlLayour);
 
+        // actionbar
         ActionBar action = getActionBar();
 
         // 페이지 이동 시 새로운 창이 아닌 현재 webView 에 표시

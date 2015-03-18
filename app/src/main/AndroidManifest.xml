@@ -60,16 +60,16 @@
         <activity
             android:name=".challenge.challenge05.challenge05"
             android:label="@string/title_activity_main" >
-        </activity>
-        <activity
-            android:name=".challenge.challenge06.challenge06Activity"
-            android:logo="@drawable/abc_btn_check_material"
-            android:label="@string/title_activity_challenge06" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".challenge.challenge06.challenge06Activity"
+            android:logo="@drawable/abc_btn_check_material"
+            android:label="@string/title_activity_challenge06" >
         </activity>
     </application>
 

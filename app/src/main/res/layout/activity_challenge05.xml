@@ -47,6 +47,8 @@
 
         <EditText
             android:id="@+id/inputAge"
+            android:inputType="number"
+            android:maxLength="3"
             android:layout_marginStart="4dp"
             android:layout_width="200dp"
             android:layout_height="50dp" />
@@ -64,6 +66,7 @@
             android:layout_width="60dp"
             android:layout_height="50dp" />
 
+        <!--생년월일 버튼-->
         <Button
             android:id="@+id/dateBtn"
             android:text="XXXX년 XX월 XX일"
@@ -71,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <!--생년월일의 시간 버튼-->
         <Button
             android:id="@+id/timeBtn"
             android:text="XX:XX:XX"

@@ -43,4 +43,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_challente05">challente05</string>
     <string name="title_activity_challenge06">challenge06Activity</string>
+
+
+    <string name="test_value">Git 테스트를 위한 수정</string>
 </resources>
