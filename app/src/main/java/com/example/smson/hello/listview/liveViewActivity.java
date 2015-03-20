@@ -2,10 +2,13 @@ package com.example.smson.hello.listview;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.view.animation.Animation;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
@@ -50,7 +53,14 @@ public class liveViewActivity extends ActionBarActivity {
         // View에 붙이기
         mListView.setAdapter(adapter);
 
-//        // Animation 객체 생성
+        // 이벤트
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(liveViewActivity.this, "position : " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+//        // Animation 객체 생성 전체 layout이 좌에서 우로감
 //        mTranslationAnimation = AnimationUtils.loadAnimation(getApplicationContext(),
 //                R.anim.sample_ani);
 //
