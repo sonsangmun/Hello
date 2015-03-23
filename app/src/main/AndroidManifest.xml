@@ -38,10 +38,6 @@
             android:label="@string/title_activity_edit_text" >
         </activity>
         <activity
-            android:name=".activity.testExamActivity"
-            android:label="@string/title_activity_test_exam" >
-        </activity>
-        <activity
             android:name=".activity.ActivityExamActivity"
             android:label="@string/title_activity_activity_exam"
             android:launchMode="singleTop" >
@@ -53,10 +49,6 @@
         <activity
             android:name=".event.TouchEventActivity"
             android:label="@string/title_activity_touch_event" >
-        </activity>
-        <activity
-            android:name=".activity.doItMission05Activity"
-            android:label="@string/title_activity_do_it_mission05" >
         </activity>
         <activity
             android:name=".challenge.challenge05.challenge05"
@@ -81,6 +73,26 @@
             android:name=".listview.mainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Base.Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".listview.activitylist.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Base.Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".listview.activitylist.SubActivity"
+            android:label="@string/title_activity_sub"
+            android:theme="@style/Base.Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".spinner.SpinnerExamActivity"
+            android:label="@string/title_activity_spinner_exam"
+            android:theme="@style/Base.Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".listview.GridActivity2Activity"
+            android:label="@string/title_activity_grid_activity2"
+            android:theme="@style/Base.Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -47,4 +47,7 @@
 
     <string name="test_value">Git 테스트를 위한 수정</string>
     <string name="title_activity_live_view">liveViewActivity</string>
+    <string name="title_activity_sub">SubActivity</string>
+    <string name="title_activity_spinner_exam">SpinnerExamActivity</string>
+    <string name="title_activity_grid_activity2">GridActivity2Activity</string>
 </resources>
