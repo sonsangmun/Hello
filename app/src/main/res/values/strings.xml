@@ -50,4 +50,5 @@
     <string name="title_activity_sub">SubActivity</string>
     <string name="title_activity_spinner_exam">SpinnerExamActivity</string>
     <string name="title_activity_grid_activity2">GridActivity2Activity</string>
+    <string name="title_activity_datebook">Datebook</string>
 </resources>
