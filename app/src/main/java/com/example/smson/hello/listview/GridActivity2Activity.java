@@ -1,16 +1,24 @@
 package com.example.smson.hello.listview;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,10 +29,32 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
+class DateBook {
+    private String dTitle;
+    private int dHour;
+    private int dMinutes;
+
+    public DateBook(String title, int hour, int minutes) {
+        dTitle = title;
+        dHour = hour;
+        dMinutes = minutes;
+    }
+    public int getValue(String value_name) {
+        if(value_name == "hour") {
+            return dHour;
+        } else if(value_name == "minutes") {
+            return dMinutes;
+        }
+        return 0;
+    }
+    public String getValue(){
+        return dTitle;
+    }
+}
+
 public class GridActivity2Activity extends ActionBarActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     private static final String TAG = GridActivity2Activity.class.getSimpleName();
 
-    private int debugSw = 0;
     private Calendar calendar;
     private GridView mGridView;
     private ArrayList<String> list;
@@ -32,22 +62,28 @@ public class GridActivity2Activity extends ActionBarActivity implements AdapterV
     private int thisYear, thisMonth, thisDay;
     private Button mPreBtn, mNextBtn, mSaveBtn;
     private TextView mDateView;
-    private HashMap<String, String> mMap;
-    private EditText mInputWord;
+    public  static HashMap<String, DateBook> sMap;
+//    private EditText mInputWord;
     private String thisPosition;
+
+
+    public DateBook getMap(String position){
+        return sMap.get(position);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_activity2);
 
-        mMap = new HashMap<>();
+        sMap = new HashMap<>();
         mPreBtn = (Button) findViewById(R.id.xPreBtn);
         mNextBtn = (Button) findViewById(R.id.xNextBtn);
-        mSaveBtn = (Button) findViewById(R.id.xSaveBtn);
+//        mSaveBtn = (Button) findViewById(R.id.xSaveBtn);
         mDateView = (TextView) findViewById(R.id.xDateView);
         mGridView = (GridView) findViewById(R.id.gridview);
-        mInputWord = (EditText) findViewById(R.id.xInputWord);
+//        mInputWord = (EditText) findViewById(R.id.xInputWord);
+
 
         // 오늘 날짜
         recalculate();
@@ -57,16 +93,15 @@ public class GridActivity2Activity extends ActionBarActivity implements AdapterV
         mNextBtn.setOnClickListener(this);
 
         // save 버튼
-        mSaveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMap.put(thisPosition, mInputWord.getText().toString());
-                Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        mSaveBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                sMap.put(thisPosition, mInputWord.getText().toString());
+//                Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
         makeCalendar();
-
-
     }
 
     private void recalculate() {
@@ -127,7 +162,7 @@ public class GridActivity2Activity extends ActionBarActivity implements AdapterV
         list.add("토");
 
         // 1일날 앞의 공백 자료 넣기
-        for (int i = 0; i < cWeek; i++) {
+        for (int i = 1; i < cWeek; i++) {
             list.add(" ");
         }
 
@@ -137,7 +172,7 @@ public class GridActivity2Activity extends ActionBarActivity implements AdapterV
         }
 
         // 어댑터 준비
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, list);
+        CustomerAdapterEx adapter = new CustomerAdapterEx(getApplicationContext(), 0, list);
         mGridView.setAdapter(adapter);
 
         // 달력의 제목 표시
@@ -165,13 +200,13 @@ public class GridActivity2Activity extends ActionBarActivity implements AdapterV
 
 
 
-//        String data = mMap.get(String.valueOf(position));
+//        String data = sMap.get(String.valueOf(position));
 //        if(data != null) {
 //            mInputWord.setText(data);
 //        } else {
 //            mInputWord.setText("");
 //        }
-//        thisPosition = String.valueOf(position);
+        thisPosition = String.valueOf(position);
 
         // 데이터를 변경 후, 어댑터에 알려주고 갱신
         // list.set(position, list.get(position) + "0");
@@ -189,18 +224,134 @@ public class GridActivity2Activity extends ActionBarActivity implements AdapterV
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        View rootView = inflater.inflate(R.layout.activity_datebook, null);
+        final View rootView = inflater.inflate(R.layout.activity_datebook, null);
         ((TextView) rootView.findViewById(R.id.dialogTitle)).setText(thisYear + "년 " + thisMonth + "월 " + thisDay + "일");
 
+        DateBook tempDateBook = sMap.get(thisPosition);
+        if(tempDateBook != null) {
+            String tempTitle = tempDateBook.getValue();
+            int tempHour = tempDateBook.getValue("hour");
+            int tempMinutes = tempDateBook.getValue("minutes");
+            ((EditText) rootView.findViewById(R.id.xTitle)).setText(tempTitle);
+            ((EditText) rootView.findViewById(R.id.xHour)).setText(String.valueOf(tempHour));
+            ((EditText) rootView.findViewById(R.id.xMinutes)).setText(String.valueOf(tempMinutes));
+
+            ((TextView) findViewById(R.id.timeLine)).setText(tempHour + ":" + tempMinutes + " | " + tempTitle);
+        }
+
         builder.setView(rootView)
-                // Add action buttons
-                .setPositiveButton("저장", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        // 저장 처리
+            // Add action buttons
+            .setPositiveButton("저장", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    // 저장 처리
+                    EditText nullCheck;
+                    int filterSw = 1;
+
+                    nullCheck = (EditText) rootView.findViewById(R.id.xTitle);
+                    String tempTitle = nullCheck.getText().toString();
+                    if (nullCheck.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "일정을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                        filterSw = 0;
                     }
-                })
-                .setNegativeButton("닫기", null);
+                    nullCheck = (EditText) rootView.findViewById(R.id.xHour);
+                    int tempHour = Integer.parseInt(nullCheck.getText().toString());
+                    if (nullCheck.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "일정 시간(시)을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                        filterSw = 0;
+                    }
+                    nullCheck = (EditText) rootView.findViewById(R.id.xMinutes);
+                    int tempMinutes = Integer.parseInt(nullCheck.getText().toString());
+                    if(nullCheck.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "일정 시간(분)을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                        filterSw = 0;
+                    }
+
+//                      Toast.makeText(getApplicationContext(), tempTitle, Toast.LENGTH_SHORT).show();
+                    if(filterSw == 1){
+                        sMap.put(thisPosition,new DateBook(tempTitle, tempHour, tempMinutes));
+                    }
+
+                    ((TextView) findViewById(R.id.timeLine)).setText(tempHour + ":" + tempMinutes + " | " + tempTitle);
+                }
+            })
+            .setNegativeButton("닫기", null);
         builder.show();
     }
+}
+
+class CustomerAdapterEx extends ArrayAdapter<String> {
+
+    // ViewHolder 패턴
+    static class ViewHolder {
+        private TextView mDay;
+        private ImageView mIcon;
+        private LayoutInflater mLayout;
+    }
+
+    // Layout을 가져오기 위한 객체
+    private LayoutInflater inflater;
+
+    public CustomerAdapterEx(Context context, int resource, ArrayList<String> objects) {
+        super(context, resource, objects);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Log.d("CustomAdapter", "position : " + position);
+
+        ViewHolder holder;
+        View view = convertView;
+
+
+        if (view == null) {
+            // View 를 처음 로딩할 때, Data 를 처음 셋팅할 때
+            inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(R.layout.calendar_body, null);
+            TextView viewDay = (TextView) view.findViewById(R.id.xDay);
+            ImageView viewIcon = (ImageView) view.findViewById(R.id.xIcon);
+
+            holder = new ViewHolder();
+            holder.mIcon = viewIcon;
+            holder.mDay = viewDay;
+
+
+            view.setTag(holder);
+        } else {
+            // View, Data 재사용
+            holder = (ViewHolder) view.getTag();
+        }
+
+
+        String tempDay = getItem(position);
+        DateBook tempDateBook = GridActivity2Activity.sMap.get(String.valueOf(position));
+
+        if(tempDateBook != null) {
+            view.setBackgroundColor(Color.rgb(242, 150, 97));
+        }
+        if (!TextUtils.isEmpty(tempDay)) {
+            holder.mDay.setText(tempDay);
+        }
+
+        // position 위치의 데이터를 취득
+//        String name = getItem(position);
+//        if (!TextUtils.isEmpty(name.toString())) {
+//            holder.labelText.setText(name.toString());
+//        }
+
+        // 홀수, 짝수 줄 배경색 변경
+//        if (position % 2 == 0) {
+//            holder.labelText.setBackgroundColor(Color.parseColor("#FFFFFF"));
+//        } else {
+//            holder.labelText.setBackgroundColor(Color.parseColor("#CCCCCC"));
+//        }
+
+        // 애니메이션 적용
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.sample_ani);
+        view.startAnimation(animation);
+
+        // 완성된 View return
+        return view;
+    }
+
 }

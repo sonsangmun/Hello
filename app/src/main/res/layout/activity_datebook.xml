@@ -25,6 +25,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"/>
         <EditText
+            android:id="@+id/xTitle"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
@@ -40,6 +41,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"/>
         <EditText
+            android:id="@+id/xHour"
             android:inputType="numberSigned"
             android:maxLength="2"
             android:layout_width="40dp"
@@ -50,6 +52,7 @@
             android:layout_width="20dp"
             android:layout_height="match_parent"/>
         <EditText
+            android:id="@+id/xMinutes"
             android:inputType="numberSigned"
             android:maxLength="2"
             android:layout_width="40dp"

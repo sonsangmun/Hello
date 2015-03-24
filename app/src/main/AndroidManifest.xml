@@ -93,6 +93,10 @@
             android:name=".listview.GridActivity2Activity"
             android:label="@string/title_activity_grid_activity2"
             android:theme="@style/Base.Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".challenge.challenge07_08.CalendarActivity"
+            android:label="@string/title_activity_calendar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
