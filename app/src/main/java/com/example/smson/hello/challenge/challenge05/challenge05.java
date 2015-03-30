@@ -106,7 +106,6 @@ public class challenge05 extends ActionBarActivity {
     };
 
     private TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
-
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             // TODO Auto-generated method stub

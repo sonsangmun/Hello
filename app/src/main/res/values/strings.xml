@@ -53,4 +53,8 @@
     <string name="title_activity_datebook">Datebook</string>
     <string name="title_activity_carlendar">CarlendarActivity</string>
     <string name="title_activity_calendar">CalendarActivity</string>
+    <string name="title_activity_parsing">ParsingActivity</string>
+    <string name="title_activity_parsing_exam">ParsingExamActivity</string>
+    <string name="title_activity_recipe_adapter">RecipeAdapter</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
 </resources>

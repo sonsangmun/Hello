@@ -97,11 +97,23 @@
         <activity
             android:name=".challenge.challenge07_08.CalendarActivity"
             android:label="@string/title_activity_calendar" >
+        </activity>
+        <activity
+            android:name=".parsing.ParsingExamActivity"
+            android:label="@string/title_activity_parsing_exam" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".parsing.RecipeAdapter"
+            android:label="@string/title_activity_recipe_adapter" >
+        </activity>
+        <activity
+            android:name=".parsing.WebViewActivity"
+            android:label="@string/title_activity_web_view" >
         </activity>
     </application>
 
