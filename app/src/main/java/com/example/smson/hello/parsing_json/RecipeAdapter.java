@@ -1,4 +1,4 @@
-package com.example.smson.hello.parsing;
+package com.example.smson.hello.parsing_json;
 
 import android.content.Context;
 import android.text.TextUtils;

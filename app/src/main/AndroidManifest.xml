@@ -99,7 +99,7 @@
             android:label="@string/title_activity_calendar" >
         </activity>
         <activity
-            android:name=".parsing.ParsingExamActivity"
+            android:name=".parsing_json.ParsingExamActivity"
             android:label="@string/title_activity_parsing_exam" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -108,11 +108,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".parsing.RecipeAdapter"
+            android:name=".parsing_json.RecipeAdapter"
             android:label="@string/title_activity_recipe_adapter" >
         </activity>
         <activity
-            android:name=".parsing.WebViewActivity"
+            android:name=".parsing_json.WebViewActivity"
             android:label="@string/title_activity_web_view" >
         </activity>
     </application>

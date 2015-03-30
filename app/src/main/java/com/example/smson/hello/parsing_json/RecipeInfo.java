@@ -1,4 +1,4 @@
-package com.example.smson.hello.parsing;
+package com.example.smson.hello.parsing_json;
 
 /**
  * Created by sangmun on 2015-03-30.
