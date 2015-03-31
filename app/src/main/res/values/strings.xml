@@ -59,4 +59,6 @@
     <string name="title_activity_web_view">WebViewActivity</string>
     <string name="title_activity_xml_parsing">XmlParsing</string>
     <string name="title_activity_test_sample">TestSampleActivity</string>
+    <string name="title_activity_android_pub_adapter">AndroidPubAdapter</string>
+    <string name="title_activity_map">MapActivity</string>
 </resources>
