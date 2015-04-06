@@ -127,11 +127,6 @@
         <activity
             android:name=".parsing_xml.XmlParsing"
             android:label="@string/title_activity_xml_parsing" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".TestSampleActivity"
@@ -150,13 +145,38 @@
             android:value="AIzaSyD-EcBbaamYE8wq9Ok5mxbBpMRHosoglDE" />
 
         <activity
-            android:name=".map.MapActivity"
+            android:name=".google_map.MapActivity"
             android:label="@string/title_activity_map" >
+        </activity>
+        <activity
+            android:name=".tour_list.TourListMainActivity"
+            android:label="@string/title_activity_tour_list_main" >
+        </activity>
+        <activity
+            android:name=".bitmap.BitmapMainActivity"
+            android:label="@string/title_activity_bitmap_main" >
+        </activity>
+        <activity
+            android:name=".graphic.GraphicActivity"
+            android:label="@string/title_activity_graphic" >
+        </activity>
+        <activity
+            android:name=".imagegallery.ImageGallery2Activity"
+            android:label="@string/title_activity_image_gallery2" >
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Base.Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SubActivity"
+            android:label="@string/title_activity_sub" >
         </activity>
     </application>
 

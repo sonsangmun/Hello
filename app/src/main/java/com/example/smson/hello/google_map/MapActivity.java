@@ -1,4 +1,4 @@
-package com.example.smson.hello.map;
+package com.example.smson.hello.google_map;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

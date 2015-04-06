@@ -61,4 +61,15 @@
     <string name="title_activity_test_sample">TestSampleActivity</string>
     <string name="title_activity_android_pub_adapter">AndroidPubAdapter</string>
     <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_tour_list_main">TourListMainActivity</string>
+    <string name="title_activity_bit_map">BitMapActivity</string>
+    <string name="title_activity_custom_view_image">CustomViewImage</string>
+    <string name="title_activity_bitmap_main">BitmapMainActivity</string>
+    <string name="title_activity_graphic">GraphicActivity</string>
+    <string name="title_activity_image_gallery2">ImageGallery2Activity</string>
+
+    <string name="pick_from_camera">From camera</string>
+    <string name="pick_from_album">From album</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
 </resources>
