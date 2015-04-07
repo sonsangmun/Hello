@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.smson.hello.spinner.SpinnerExamActivity">
+    tools:context="com.example.smson.hello.other.spinner.SpinnerExamActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -16,7 +16,6 @@
 
     <Spinner
         android:id="@+id/spinner"
-        
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         </Spinner>

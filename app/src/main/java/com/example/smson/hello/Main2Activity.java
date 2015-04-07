@@ -8,8 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.smson.hello.listview.activitylist.SubActivity;
-
 /**
  * ListView 로 메뉴 구성
  */
@@ -19,7 +17,10 @@ public class Main2Activity extends ActionBarActivity implements AdapterView.OnIt
             "Challenge",
             "Event",
             "ListView",
-            "Thread"
+            "Thread",
+            "Parsing",
+            "TourList",
+            "Other"
     };
     private ListView mListView;
 
@@ -39,7 +40,7 @@ public class Main2Activity extends ActionBarActivity implements AdapterView.OnIt
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getApplicationContext(), SubActivity.class);
+        Intent intent = new Intent(getApplicationContext(), Sub2Activity.class);
         intent.putExtra("menu", ITEMS[position]);
         startActivity(intent);
     }

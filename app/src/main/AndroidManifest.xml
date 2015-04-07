@@ -25,7 +25,21 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Base.Theme.AppCompat" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Sub2Activity"
+            android:label="@string/title_activity_sub"
+            android:theme="@style/Base.Theme.AppCompat" >
+        </activity>
         <!-- activity 는 1개의 객체창에 해당 -->
         <activity
             android:name=".activity.FirstActivity"
@@ -61,7 +75,7 @@
             android:label="@string/title_activity_target" >
         </activity>
         <activity
-            android:name=".event.TouchEventActivity"
+            android:name=".other.event.TouchEventActivity"
             android:label="@string/title_activity_touch_event" >
         </activity>
         <activity
@@ -99,7 +113,7 @@
             android:theme="@style/Base.Theme.AppCompat" >
         </activity>
         <activity
-            android:name=".spinner.SpinnerExamActivity"
+            android:name=".other.spinner.SpinnerExamActivity"
             android:label="@string/title_activity_spinner_exam"
             android:theme="@style/Base.Theme.AppCompat" >
         </activity>
@@ -113,27 +127,27 @@
             android:label="@string/title_activity_calendar" >
         </activity>
         <activity
-            android:name=".parsing_json.ParsingExamActivity"
+            android:name=".parsing.json.ParsingExamActivity"
             android:label="@string/title_activity_parsing_exam" >
         </activity>
         <activity
-            android:name=".parsing_json.RecipeAdapter"
+            android:name=".parsing.json.RecipeAdapter"
             android:label="@string/title_activity_recipe_adapter" >
         </activity>
         <activity
-            android:name=".parsing_json.WebViewActivity"
+            android:name=".parsing.json.WebViewActivity"
             android:label="@string/title_activity_web_view" >
         </activity>
         <activity
-            android:name=".parsing_xml.XmlParsing"
+            android:name=".parsing.xml.XmlParsing"
             android:label="@string/title_activity_xml_parsing" >
         </activity>
         <activity
-            android:name=".TestSampleActivity"
+            android:name=".other.TestSampleActivity"
             android:label="@string/title_activity_test_sample" >
         </activity>
         <activity
-            android:name=".parsing_xml.AndroidPubAdapter"
+            android:name=".parsing.xml.AndroidPubAdapter"
             android:label="@string/title_activity_android_pub_adapter" >
         </activity>
 
@@ -145,7 +159,7 @@
             android:value="AIzaSyD-EcBbaamYE8wq9Ok5mxbBpMRHosoglDE" />
 
         <activity
-            android:name=".google_map.MapActivity"
+            android:name=".other.google_map.MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
         <activity
@@ -153,29 +167,51 @@
             android:label="@string/title_activity_tour_list_main" >
         </activity>
         <activity
-            android:name=".bitmap.BitmapMainActivity"
+            android:name=".other.bitmap.BitmapMainActivity"
             android:label="@string/title_activity_bitmap_main" >
         </activity>
         <activity
-            android:name=".graphic.GraphicActivity"
+            android:name=".other.graphic.GraphicActivity"
             android:label="@string/title_activity_graphic" >
         </activity>
         <activity
-            android:name=".imagegallery.ImageGallery2Activity"
+            android:name=".other.imagegallery.ImageGallery2Activity"
             android:label="@string/title_activity_image_gallery2" >
         </activity>
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Base.Theme.AppCompat">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".Thread.LoginActivity"
+            android:label="@string/title_activity_login" >
         </activity>
         <activity
-            android:name=".SubActivity"
+            android:name=".Thread.AsyncTaskActivity"
+            android:label="@string/title_activity_async_task" >
+        </activity>
+        <activity
+            android:name=".Thread.ThreadActivity"
+            android:label="@string/title_activity_thread" >
+        </activity>
+        <activity
+            android:name=".Thread.TimerActivity"
+            android:label="@string/title_activity_timer" >
+        </activity>
+        <activity
+            android:name=".other.service.KitchenTimerActivity"
+            android:label="@string/title_activity_kitchen_timer" >
+        </activity>
+        <activity
+            android:name=".challenge.challenge01.ImageExamActivity"
+            android:label="@string/title_activity_image_exam" >
+        </activity>
+        <activity
+            android:name=".challenge.challenge02.SMSActivity"
+            android:label="@string/title_activity_sms" >
+        </activity>
+        <activity
+            android:name=".challenge.challenge04.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".challenge.challenge04.SubActivity"
             android:label="@string/title_activity_sub" >
         </activity>
     </application>

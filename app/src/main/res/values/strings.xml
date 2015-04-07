@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">안녕 안드로이드</string>
+    <string name="app_name">수원스마트앱개발</string>
 
     <string name="hello_world">안녕 안드로이드 전송!</string>
     <string name="name">테스트</string>
@@ -71,5 +71,15 @@
     <string name="pick_from_camera">From camera</string>
     <string name="pick_from_album">From album</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_async_task">AsyncTaskActivity</string>
+    <string name="title_activity_thread">ThreadActivity</string>
+    <string name="title_activity_timer">TimerActivity</string>
 
+    <string name="timerVal">00:00:000</string>
+    <string name="pauseButtonLabel">Pause</string>
+    <string name="startButtonLabel">Start</string>
+    <string name="title_activity_kitchen_timer">KitchenTimerActivity</string>
+    <string name="title_activity_image_exam">ImageExamActivity</string>
+    <string name="title_activity_sms">SMSActivity</string>
 </resources>

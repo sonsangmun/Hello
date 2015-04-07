@@ -42,7 +42,7 @@ class proFile {
     }
 }
 
-public class liveView02Activity extends ActionBarActivity {
+public class LiveView02Activity extends ActionBarActivity {
     private ListView mListView;
     private ArrayList<proFile> mNameList;
     private TextView mAniLine;
@@ -75,7 +75,7 @@ public class liveView02Activity extends ActionBarActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(liveView02Activity.this, "position : " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LiveView02Activity.this, "position : " + position, Toast.LENGTH_SHORT).show();
             }
         });
 //        // Animation 객체 생성 전체 layout이 좌에서 우로감

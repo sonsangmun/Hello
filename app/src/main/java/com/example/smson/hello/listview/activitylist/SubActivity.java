@@ -20,8 +20,8 @@ import com.example.smson.hello.activity.SecondActivity;
 import com.example.smson.hello.activity.TableLayoutActivity;
 import com.example.smson.hello.challenge.challenge05.challenge05;
 import com.example.smson.hello.challenge.challenge06.challenge06Activity;
-import com.example.smson.hello.event.TouchEventActivity;
-import com.example.smson.hello.listview.liveView02Activity;
+import com.example.smson.hello.other.event.TouchEventActivity;
+import com.example.smson.hello.listview.LiveView02Activity;
 import com.example.smson.hello.listview.liveViewActivity;
 
 public class SubActivity extends ActionBarActivity  implements AdapterView.OnItemClickListener {
@@ -69,7 +69,7 @@ public class SubActivity extends ActionBarActivity  implements AdapterView.OnIte
 
     private static final Class[] LISTVIEW_CLASSES = {
             liveViewActivity.class,
-            liveView02Activity.class
+            LiveView02Activity.class
     };
 
     private ListView mListView;

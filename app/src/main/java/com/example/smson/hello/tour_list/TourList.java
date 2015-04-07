@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 /**
  * Created by sangmun on 2015-04-02.
  */
+
+// TODO 현재 실행시 프로그램 중단되. 빌드시 오류 없음.
 public class TourList extends Activity{
     private Bitmap mListMainImg;
     private String mLIstMainTitle;
