@@ -6,7 +6,9 @@ import android.widget.EditText;
 
 import com.example.smson.hello.R;
 
-
+/**
+ * EditText 테스트 샘플 소스
+ */
 public class EditTextActivity extends ActionBarActivity {
     private static final String TAG = EditTextActivity.class.getSimpleName();
     EditText mInputEditText;

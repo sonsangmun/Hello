@@ -17,7 +17,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.smson.hello.R;
-import com.example.smson.hello.challenge.challenge06.CalendarAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;

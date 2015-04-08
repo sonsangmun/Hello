@@ -12,6 +12,10 @@ import android.widget.ImageView;
 
 import com.example.smson.hello.R;
 
+/**
+ * UP 버튼 클릭시 위의 그림이 변경되며 DOWN 버튼 클릭시 아래의 그림이 변경되는 샘플 소스
+ * FrameLayout 테스트 샘플 소스
+ */
 public class FrameLayoutActivity extends ActionBarActivity {
     Button mDownButton;
     Button mUpButton;

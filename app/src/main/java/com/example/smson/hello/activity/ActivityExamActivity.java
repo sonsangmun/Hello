@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
+/**
+ * Activity 생성에서 삭제 과정을 확인하는 샘플
+ */
 public class ActivityExamActivity extends ActionBarActivity {
     private static final String TAG = ActivityExamActivity.class.getSimpleName();
 
@@ -73,6 +76,7 @@ public class ActivityExamActivity extends ActionBarActivity {
             }
         });
 
+        // AlertDialog 창 구성
         mDialogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,7 +7,9 @@ import android.view.MenuItem;
 
 import com.example.smson.hello.R;
 
-
+/**
+ * Activity 디자인 샘플 소스
+ */
 public class SecondActivity extends ActionBarActivity {
 
     @Override

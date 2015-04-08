@@ -17,6 +17,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * 입력기에서 시간 과 날짜를 선택하여 입력하는 폼 구성
+ */
 public class challenge05 extends ActionBarActivity {
     private Button mDateBtn;
     private Button mTimeBtn;

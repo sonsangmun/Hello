@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
+/**
+ * Activity 이동에 쓰이는 Target Activity
+ */
 public class TargetActivity extends ActionBarActivity {
     Button mStartMoveBtn;
     private static final String TAG = TargetActivity.class.getSimpleName();

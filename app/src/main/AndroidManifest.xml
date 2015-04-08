@@ -93,7 +93,7 @@
             android:theme="@style/Base.Theme.AppCompat" >
         </activity>
         <activity
-            android:name=".listview.liveView02Activity"
+            android:name=".listview.LiveView02Activity"
             android:label="@string/title_activity_live_view"
             android:theme="@style/Base.Theme.AppCompat" >
         </activity>
@@ -213,6 +213,10 @@
         <activity
             android:name=".challenge.challenge04.SubActivity"
             android:label="@string/title_activity_sub" >
+        </activity>
+        <activity
+            android:name=".other.gallery.GalleryActivity"
+            android:label="@string/title_activity_gallery" >
         </activity>
     </application>
 

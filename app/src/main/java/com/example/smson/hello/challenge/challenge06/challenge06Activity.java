@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
+/**
+ * 주소창 버튼을 클릭 하면 주소 입력폼이 나타난다.
+ * 주소 입력을 한후 이동을 누르면 하단의 WebView 에 홈페이지가 나타난다.
+ */
 public class challenge06Activity extends ActionBarActivity {
     private WebView mWebView;
     private EditText mEditText;

@@ -12,6 +12,10 @@ import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
+/**
+ * SMS 발송 창 샘플 소스
+ * 전송을 클릭 하면 작성한 글이 Toast 로 나타난다.
+ */
 public class SMSActivity extends ActionBarActivity {
 
     private EditText mMessageEditText;

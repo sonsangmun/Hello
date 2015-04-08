@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import com.example.smson.hello.R;
 
+/**
+ * 버튼 테스트 샘플 소스
+ */
 public class FirstActivity extends ActionBarActivity {
     private Button testButton;
 

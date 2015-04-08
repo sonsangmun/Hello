@@ -13,6 +13,8 @@ import com.example.smson.hello.R;
 
 /**
  * page 271
+ * UP 버튼을 클릭하면 위에 그림이 나타나고
+ * DOWN 버튼을 클릭 하면 아래에 그림이 나타난다.
  */
 public class ImageExamActivity extends ActionBarActivity {
 

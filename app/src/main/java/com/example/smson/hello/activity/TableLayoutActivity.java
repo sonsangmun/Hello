@@ -7,7 +7,9 @@ import android.view.MenuItem;
 
 import com.example.smson.hello.R;
 
-
+/**
+ * TableLayout 테스트 샘플 소스
+ */
 public class TableLayoutActivity extends ActionBarActivity {
 
     @Override

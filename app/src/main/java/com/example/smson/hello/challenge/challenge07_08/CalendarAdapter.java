@@ -1,4 +1,4 @@
-package com.example.smson.hello.challenge.challenge06;
+package com.example.smson.hello.challenge.challenge07_08;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * 달력 표시용
+ * 달력 표시용 Adapter
  * Created by sangmun on 2015-03-24.
  */
 public class CalendarAdapter extends BaseAdapter {
