@@ -218,6 +218,14 @@
             android:name=".other.gallery.GalleryActivity"
             android:label="@string/title_activity_gallery" >
         </activity>
+        <activity
+            android:name=".other.database.DbActivity"
+            android:label="@string/title_activity_db" >
+        </activity>
+        <activity
+            android:name=".other.database.TestDataBaseActivity"
+            android:label="@string/title_activity_db" >
+        </activity>
     </application>
 
 </manifest>

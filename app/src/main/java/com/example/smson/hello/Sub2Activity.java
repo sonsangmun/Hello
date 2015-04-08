@@ -30,6 +30,7 @@ import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
 import com.example.smson.hello.other.TestSampleActivity;
 import com.example.smson.hello.other.bitmap.BitmapMainActivity;
+import com.example.smson.hello.other.database.TestDataBaseActivity;
 import com.example.smson.hello.other.event.TouchEventActivity;
 import com.example.smson.hello.other.gallery.GalleryActivity;
 import com.example.smson.hello.other.google_map.MapActivity;
@@ -114,7 +115,8 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
             "Event",
             "spinner",
             "Service",
-            "gallery"
+            "gallery",
+            "database"
     };
     private static final Class[] OTHER_CLASSES = {
             TestSampleActivity.class,
@@ -125,7 +127,8 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
             TouchEventActivity.class,
             SpinnerExamActivity.class,
             KitchenTimerActivity.class,
-            GalleryActivity.class
+            GalleryActivity.class,
+            TestDataBaseActivity.class
     };
     private static final String[] TOURLIST_ITEMS = {
             "Tour List"

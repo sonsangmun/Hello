@@ -11,7 +11,7 @@
 
     <EditText
         android:id="@+id/outputText"
-        android:hint="입력이 안되여"
+        android:hint="입력이 안됩니다."
         android:editable="false"
         android:singleLine="true"
         android:text="@string/hello_world"
@@ -25,7 +25,20 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/save_button"
+        android:text="저장"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/load_button"
+        android:text="불러오기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <TextView
+        android:id="@+id/textview"
         android:text="http://naver.com"
         android:singleLine="true"
         android:ellipsize="end"
