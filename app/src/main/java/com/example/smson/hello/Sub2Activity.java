@@ -26,6 +26,7 @@ import com.example.smson.hello.challenge.challenge04.MainActivity;
 import com.example.smson.hello.challenge.challenge05.challenge05;
 import com.example.smson.hello.challenge.challenge06.challenge06Activity;
 import com.example.smson.hello.challenge.challenge07_08.CalendarActivity;
+import com.example.smson.hello.intent.ActionPickActivity;
 import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
 import com.example.smson.hello.other.TestSampleActivity;
@@ -40,6 +41,7 @@ import com.example.smson.hello.other.service.KitchenTimerActivity;
 import com.example.smson.hello.other.spinner.SpinnerExamActivity;
 import com.example.smson.hello.parsing.json.ParsingExamActivity;
 import com.example.smson.hello.parsing.xml.XmlParsing;
+import com.example.smson.hello.surfaceview.GameActivity;
 import com.example.smson.hello.tour_list.TourList;
 
 
@@ -116,7 +118,8 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
             "spinner",
             "Service",
             "gallery",
-            "database"
+            "database",
+            "SurfaceView"
     };
     private static final Class[] OTHER_CLASSES = {
             TestSampleActivity.class,
@@ -128,13 +131,20 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
             SpinnerExamActivity.class,
             KitchenTimerActivity.class,
             GalleryActivity.class,
-            TestDataBaseActivity.class
+            TestDataBaseActivity.class,
+            GameActivity.class
     };
     private static final String[] TOURLIST_ITEMS = {
             "Tour List"
     };
     private static final Class[] TOURLIST_CLASSES = {
             TourList.class
+    };
+    private static final String[] INTENT_ITEMS = {
+            "Intent"
+    };
+    private static final Class[] INTENT_CLASSES = {
+            ActionPickActivity.class
     };
 
     private ListView mListView;
@@ -181,6 +191,9 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
                 break;
             case "Thread":
                 result = new Pair(THREAD_ITEMS, THREAD_CLASSES);
+                break;
+            case "Intent":
+                result = new Pair(INTENT_ITEMS, INTENT_CLASSES);
                 break;
         }
         return result;

@@ -25,7 +25,8 @@ import java.io.Writer;
 
 /**
  * 1. EditText 테스트 샘플 소스
- * TODO 2. EditText 입력정보를 파일로 저장
+ * TODO 2. 파일에 텍스트 내용 저장
+ * 3. 저장된 텍스트를 불러오기
  */
 public class EditTextActivity extends ActionBarActivity {
     private static final String TAG = EditTextActivity.class.getSimpleName();
@@ -118,7 +119,8 @@ public class EditTextActivity extends ActionBarActivity {
                     fis = openFileInput("test.txt");
                     byte[] data = new byte[fis.available()];
                     while (fis.read(data) != -1){
-                        Log.d(TAG, fis.read(data)) ;
+                        // TODO 입력된 자료값 불러오는 부분 재 확인(오류남)
+//                        Log.d(TAG, fis.read(data)) ;
                     }
                     fis.close();
                 } catch (FileNotFoundException e) {

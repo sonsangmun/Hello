@@ -226,6 +226,14 @@
             android:name=".other.database.TestDataBaseActivity"
             android:label="@string/title_activity_db" >
         </activity>
+        <activity
+            android:name=".surfaceview.GameActivity"
+            android:label="@string/title_activity_game" >
+        </activity>
+        <activity
+            android:name=".intent.ActionPickActivity"
+            android:label="@string/title_activity_action_pick" >
+        </activity>
     </application>
 
 </manifest>

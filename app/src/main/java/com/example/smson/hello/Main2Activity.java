@@ -20,6 +20,7 @@ public class Main2Activity extends ActionBarActivity implements AdapterView.OnIt
             "Thread",
             "Parsing",
             "TourList",
+            "Intent",
             "Other"
     };
     private ListView mListView;

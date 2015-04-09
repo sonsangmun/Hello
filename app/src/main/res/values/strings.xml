@@ -84,4 +84,6 @@
     <string name="title_activity_sms">SMSActivity</string>
     <string name="title_activity_gallery">GalleryActivity</string>
     <string name="title_activity_db">DbActivity</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_action_pick">ActionPickActivity</string>
 </resources>
