@@ -1,4 +1,4 @@
-package com.example.smson.hello.other.database;
+package com.example.smson.hello.database.dbtest1;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -26,12 +26,13 @@ import com.example.smson.hello.challenge.challenge04.MainActivity;
 import com.example.smson.hello.challenge.challenge05.challenge05;
 import com.example.smson.hello.challenge.challenge06.challenge06Activity;
 import com.example.smson.hello.challenge.challenge07_08.CalendarActivity;
+import com.example.smson.hello.database.dbtest1.TestDataBaseActivity;
+import com.example.smson.hello.database.dbtest2.DbManagerActivity;
 import com.example.smson.hello.intent.ActionPickActivity;
 import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
 import com.example.smson.hello.other.TestSampleActivity;
 import com.example.smson.hello.other.bitmap.BitmapMainActivity;
-import com.example.smson.hello.other.database.TestDataBaseActivity;
 import com.example.smson.hello.other.event.TouchEventActivity;
 import com.example.smson.hello.other.gallery.GalleryActivity;
 import com.example.smson.hello.other.google_map.MapActivity;
@@ -118,7 +119,6 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
             "spinner",
             "Service",
             "gallery",
-            "database",
             "SurfaceView"
     };
     private static final Class[] OTHER_CLASSES = {
@@ -131,7 +131,6 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
             SpinnerExamActivity.class,
             KitchenTimerActivity.class,
             GalleryActivity.class,
-            TestDataBaseActivity.class,
             GameActivity.class
     };
     private static final String[] TOURLIST_ITEMS = {
@@ -146,7 +145,14 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
     private static final Class[] INTENT_CLASSES = {
             ActionPickActivity.class
     };
-
+    private static final String[] DATABASE_ITEMS = {
+            "TestDataBaseActivity",
+            "DbManager"
+    };
+    private static final Class[] DATABASE_CLASSES = {
+            TestDataBaseActivity.class,
+            DbManagerActivity.class
+    };
     private ListView mListView;
 
     @Override
@@ -194,6 +200,9 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
                 break;
             case "Intent":
                 result = new Pair(INTENT_ITEMS, INTENT_CLASSES);
+                break;
+            case "Database":
+                result = new Pair(DATABASE_ITEMS, DATABASE_CLASSES);
                 break;
         }
         return result;

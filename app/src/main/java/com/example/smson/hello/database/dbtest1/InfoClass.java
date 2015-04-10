@@ -1,4 +1,4 @@
-package com.example.smson.hello.other.database;
+package com.example.smson.hello.database.dbtest1;
 
 /**
  * Created by sangmun on 2015-04-08.

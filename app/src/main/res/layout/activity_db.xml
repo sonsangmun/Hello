@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.smson.hello.other.database.DbActivity">
+    tools:context="com.example.smson.hello.database.dbtest1.DbActivity">
 
     <LinearLayout
         android:id="@+id/ll_top"
