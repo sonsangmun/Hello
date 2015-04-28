@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,13 +29,16 @@ import java.io.Writer;
  * TODO 2. 파일에 텍스트 내용 저장
  * 3. 저장된 텍스트를 불러오기
  */
-public class EditTextActivity extends ActionBarActivity {
+public class EditTextActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = EditTextActivity.class.getSimpleName();
     private EditText mInputEditText;
     private EditText mOutputEditText;
     private Button mSaveButton;
     private Button mLoadButton;
+    private ImageButton mImageButton;
     private TextView mTextView;
+
+    private int mStat = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,9 @@ public class EditTextActivity extends ActionBarActivity {
         mSaveButton = (Button) findViewById(R.id.save_button);
         mLoadButton = (Button) findViewById(R.id.load_button);
         mTextView = (TextView) findViewById(R.id.textview);
+        mImageButton = (ImageButton) findViewById(R.id.img_button);
+
+        mImageButton.setOnClickListener(this);
 
         textChange();
         // code block A
@@ -165,5 +172,28 @@ public class EditTextActivity extends ActionBarActivity {
 
     private void textChange() {
         mOutputEditText.setText(mInputEditText.getText());
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.img_button:
+                if (mStat == 0) {
+                    mImageButton.setImageResource(R.drawable.stop);
+                     mStat = 1;
+                } else if (mStat == 1) {
+                    mImageButton.setImageResource(R.drawable.play);
+                    mStat = 2;
+                } else {
+                    mImageButton.setImageResource(R.drawable.girl);
+                    mStat = 0;
+                }
+                break;
+
+        }
+    }
+
+    private void echoToast(String msg) {
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }

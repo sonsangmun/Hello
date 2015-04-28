@@ -87,4 +87,10 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="title_activity_action_pick">ActionPickActivity</string>
     <string name="title_activity_db_manager">DbManager</string>
+    <string name="title_activity_chat">ChatActivit</string>
+    <string name="title_activity_sub_test_sample">SubTestSampleActivity</string>
+    <string name="title_activity_main4">Main4Activity</string>
+    <string name="title_activity_camera_intent">CameraIntentActivity</string>
+    <string name="title_activity_camera_builtin">CameraBuiltinActivity</string>
+    <string name="title_activity_media_player">MediaPlayerActivity</string>
 </resources>

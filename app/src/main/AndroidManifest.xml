@@ -19,6 +19,11 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+    <!-- 카메라 권한 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
     <!-- package 의 com.example.smson.hello 는 경로로도 사용된다. -->
     <application
         android:allowBackup="true"
@@ -238,6 +243,44 @@
             android:name=".database.dbtest2.DbManagerActivity"
             android:label="@string/title_activity_db_manager" >
         </activity>
+        <activity
+            android:name=".chat.client.ChatActivit"
+            android:label="@string/title_activity_chat" >
+        </activity>
+        <activity
+            android:name=".chat.client.ChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
+        <activity
+            android:name=".other.SubTestSampleActivity"
+            android:label="@string/title_activity_sub_test_sample" >
+        </activity>
+        <activity
+            android:name=".camera.intent.CameraIntentActivity"
+            android:label="@string/title_activity_camera_intent" >
+        </activity>
+        <activity
+            android:name=".camera.builtin.CameraBuiltinActivity"
+            android:label="@string/title_activity_camera_builtin"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".multimedia.MediaPlayerActivity"
+            android:label="@string/title_activity_media_player" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".multimedia.MusicService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

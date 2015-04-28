@@ -57,6 +57,32 @@
             android:layout_height="wrap_content"
             android:onClick="onButton3Clicked"
             android:id="@+id/textButton3" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_gravity="center_horizontal"
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_gravity="center_horizontal"
+            android:autoLink="all"
+            android:text="www.naver.com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_box_or"
+            android:drawableTop="@drawable/play"
+            android:text="Touch"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout

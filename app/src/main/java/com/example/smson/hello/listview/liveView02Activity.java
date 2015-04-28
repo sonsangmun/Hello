@@ -58,11 +58,11 @@ public class LiveView02Activity extends ActionBarActivity {
 
         // Data 준비
         mNameList = new ArrayList<>();
-        mNameList.add(new proFile(R.drawable.abc_ab_share_pack_holo_dark, "이름1", "주소1", "000-000-001"));
-        mNameList.add(new proFile(R.drawable.abc_ab_share_pack_holo_dark, "이름2", "주소2", "000-000-002"));
-        mNameList.add(new proFile(R.drawable.abc_ab_share_pack_holo_dark, "이름2", "주소2", "000-000-003"));
-        mNameList.add(new proFile(R.drawable.abc_ab_share_pack_holo_dark, "이름2", "주소2", "000-000-004"));
-        mNameList.add(new proFile(R.drawable.abc_ab_share_pack_holo_dark, "이름2", "주소2", "000-000-005"));
+        mNameList.add(new proFile(R.drawable.car, "이름1", "주소1", "000-000-001"));
+        mNameList.add(new proFile(R.drawable.girl, "이름2", "주소2", "000-000-002"));
+        mNameList.add(new proFile(R.drawable.gold_apple, "이름2", "주소2", "000-000-003"));
+        mNameList.add(new proFile(R.drawable.psp, "이름2", "주소2", "000-000-004"));
+        mNameList.add(new proFile(R.drawable.girl, "이름2", "주소2", "000-000-005"));
 
         // Adapter 준비
         // ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_2, mNameList);

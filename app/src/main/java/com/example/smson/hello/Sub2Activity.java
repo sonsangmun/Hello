@@ -2,7 +2,7 @@ package com.example.smson.hello;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,17 +20,21 @@ import com.example.smson.hello.activity.FrameLayoutActivity;
 import com.example.smson.hello.activity.RelativeLayoutExamActivity;
 import com.example.smson.hello.activity.SecondActivity;
 import com.example.smson.hello.activity.TableLayoutActivity;
+import com.example.smson.hello.camera.builtin.CameraBuiltinActivity;
+import com.example.smson.hello.camera.intent.CameraIntentActivity;
 import com.example.smson.hello.challenge.challenge01.ImageExamActivity;
 import com.example.smson.hello.challenge.challenge02.SMSActivity;
 import com.example.smson.hello.challenge.challenge04.MainActivity;
 import com.example.smson.hello.challenge.challenge05.challenge05;
 import com.example.smson.hello.challenge.challenge06.challenge06Activity;
 import com.example.smson.hello.challenge.challenge07_08.CalendarActivity;
+import com.example.smson.hello.chat.client.ChatActivity;
 import com.example.smson.hello.database.dbtest1.TestDataBaseActivity;
 import com.example.smson.hello.database.dbtest2.DbManagerActivity;
 import com.example.smson.hello.intent.ActionPickActivity;
 import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
+import com.example.smson.hello.multimedia.MediaPlayerActivity;
 import com.example.smson.hello.other.TestSampleActivity;
 import com.example.smson.hello.other.bitmap.BitmapMainActivity;
 import com.example.smson.hello.other.event.TouchEventActivity;
@@ -46,7 +50,7 @@ import com.example.smson.hello.surfaceview.GameActivity;
 import com.example.smson.hello.tour_list.TourList;
 
 
-public class Sub2Activity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+public class Sub2Activity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private static final String[] ACTIVITY_ITEMS = {
             "Activity 예제",
             "EditTextActivity",
@@ -145,6 +149,20 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
     private static final Class[] INTENT_CLASSES = {
             ActionPickActivity.class
     };
+    private static final String[] CHAT_ITEMS = {
+            "Chat Client"
+    };
+    private static final Class[] CHAT_CLASSES = {
+            ChatActivity.class
+    };
+    private static final String[] CAMERA_ITEMS = {
+            "Intent Camera",
+            "Builtin Camera"
+    };
+    private static final Class[] CAMERA_CLASSES = {
+            CameraIntentActivity.class,
+            CameraBuiltinActivity.class
+    };
     private static final String[] DATABASE_ITEMS = {
             "TestDataBaseActivity",
             "DbManager"
@@ -152,6 +170,12 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
     private static final Class[] DATABASE_CLASSES = {
             TestDataBaseActivity.class,
             DbManagerActivity.class
+    };
+    private static final String[] MEDIA_ITEMS = {
+            "플레이어"
+    };
+    private static final Class[] MEDIA_CLASSES = {
+            MediaPlayerActivity.class
     };
     private ListView mListView;
 
@@ -203,6 +227,15 @@ public class Sub2Activity extends ActionBarActivity implements AdapterView.OnIte
                 break;
             case "Database":
                 result = new Pair(DATABASE_ITEMS, DATABASE_CLASSES);
+                break;
+            case "Chat":
+                result = new Pair(CHAT_ITEMS, CHAT_CLASSES);
+                break;
+            case "Camera":
+                result = new Pair(CAMERA_ITEMS, CAMERA_CLASSES);
+                break;
+            case "Media":
+                result = new Pair(MEDIA_ITEMS, MEDIA_CLASSES);
                 break;
         }
         return result;

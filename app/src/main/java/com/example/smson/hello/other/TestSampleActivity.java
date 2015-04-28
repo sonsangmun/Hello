@@ -1,5 +1,6 @@
 package com.example.smson.hello.other;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 import com.example.smson.hello.R;
 
 
-public class TestSampleActivity extends ActionBarActivity {
+public class TestSampleActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = TestSampleActivity.class.getSimpleName();
     // 버튼 객체 초기화
     private Button mButton;
@@ -24,12 +25,14 @@ public class TestSampleActivity extends ActionBarActivity {
 
         mButton = (Button) findViewById(R.id.xml_Button);
 
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "테스트", Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "test:테스트");
-            }
-        });
+        mButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getApplicationContext(), "테스트", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "test:테스트");
+        Intent intent = new Intent(getApplicationContext(), SubTestSampleActivity.class);
+        startActivity(intent);
     }
 }

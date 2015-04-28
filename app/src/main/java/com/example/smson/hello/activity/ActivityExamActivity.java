@@ -28,6 +28,7 @@ public class ActivityExamActivity extends ActionBarActivity {
 
     private EditText mDataEditText;
 
+    // onCreate : Activity가 실행될때 처음 실행.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
