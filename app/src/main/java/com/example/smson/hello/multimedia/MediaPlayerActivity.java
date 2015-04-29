@@ -1,23 +1,27 @@
 package com.example.smson.hello.multimedia;
 
+import java.io.IOException;
+import java.util.logging.Handler;
+
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.smson.hello.R;
 
-import java.io.IOException;
-
-public class MediaPlayerActivity extends AppCompatActivity implements View.OnClickListener {
+public class MediaPlayerActivity extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
 
     private static final int REQUEST_CODE_AUDIO = 0;
     private static final int REQUEST_CODE_VIDEO = 1;
@@ -30,10 +34,31 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
     private int mAudioStat = 0;
     private int mVideoStat = 0;
     private TextView mFileName;
+    private SeekBar mPlayProgressBar;
 
     // 플레이어
     private MediaPlayer mMediaPlayer;
     private VideoView mVideoView;
+
+    // 재생시 SeekBar 처리
+    // http://androiddeveloper.tistory.com/91
+    public Handler mProgressHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (mMediaPlayer == null) return;
+            try {
+                if (mMediaPlayer.isPlaying()){
+                    mPlayProgressBar.setProgress(mMediaPlayer.getCurrentPosition());
+                    mProgressHandler.sendEmptyMessageDelayed(0, 100);
+                }
+            } catch (IllegalStateException e) {
+
+            } catch (Exception e) {
+
+            }
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +83,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         mBtnPlayer = (ImageButton) findViewById(R.id.btn_player);
         mVideoView = (VideoView) findViewById(R.id.videoView);
         mFileName = (TextView) findViewById(R.id.file_name);
+        mPlayProgressBar = (SeekBar) findViewById(R.id.play_seekbard);
 
         mBtnAudioFilePick.setOnClickListener(this);
         mBtnVideoFilePick.setOnClickListener(this);
@@ -232,6 +258,8 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
             mMediaPlayer.setDataSource(getApplicationContext(), fileUri);
             mMediaPlayer.prepare();
             mMediaPlayer.start();
+
+            mProgressHandler.sendEmptyMessageDelayed(0, 100);
         } catch (IOException e) {
             e.printStackTrace();
         }
