@@ -21,8 +21,11 @@
 
     <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
+
+    <!-- 주소록 읽기 쓰기 권한 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- package 의 com.example.smson.hello 는 경로로도 사용된다. -->
     <application
@@ -281,6 +284,11 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+        <activity
+            android:name=".contentprovider.ContentActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/title_activity_content" >
+        </activity>
     </application>
 
 </manifest>

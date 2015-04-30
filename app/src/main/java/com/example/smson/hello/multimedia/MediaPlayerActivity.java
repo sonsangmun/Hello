@@ -1,13 +1,10 @@
 package com.example.smson.hello.multimedia;
 
-import java.io.IOException;
-import java.util.logging.Handler;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,11 +18,17 @@ import android.widget.VideoView;
 
 import com.example.smson.hello.R;
 
+import java.io.IOException;
+
 public class MediaPlayerActivity extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
 
     private static final int REQUEST_CODE_AUDIO = 0;
     private static final int REQUEST_CODE_VIDEO = 1;
     private static final String TAG = MediaPlayerActivity.class.getSimpleName();
+    private static final int AUDIO_PLAY = 1;
+    private static final int AUDIO_PAUSE = 0;
+    private static final int VIDEO_PLAY = 1;
+    private static final int VIDEO_PAUSE = 0;
 
     private ImageButton mBtnAudioFilePick;    // 파일 선택
     private ImageButton mBtnVideoFilePick;    // 파일 선택
@@ -59,6 +62,22 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         }
     };
 
+    public Handler mProgressHandler2 = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (mVideoView == null) return;
+            try{
+                if(mVideoView.isPlaying()) {
+                    mPlayProgressBar.setProgress(mVideoView.getCurrentPosition());
+                    mProgressHandler2.sendEmptyMessageDelayed(0, 100);
+                }
+            } catch (IllegalStateException e) {
+
+            } catch (Exception e) {
+
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,16 +266,43 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+    // 음악 재생 시작
     private void startMusic(Uri fileUri) {
-        if (mMediaPlayer != null) {
-            mMediaPlayer.release();
-            mMediaPlayer = null;
+        if (mMediaPlayer == null) {
+            mMediaPlayer = new MediaPlayer();
+        } else {
+            mMediaPlayer.reset();
         }
 
+        mMediaPlayer.setOnCompletionListener(this);
+        String fullFilePath = fileUri.toString();
+
         try {
-            mMediaPlayer = new MediaPlayer();
             mMediaPlayer.setDataSource(getApplicationContext(), fileUri);
             mMediaPlayer.prepare();
+            int point = mMediaPlayer.getDuration();
+            mPlayProgressBar.setMax(point);
+
+            int maxMinPoint = point / 1000 / 60;
+            int maxSecPoint = (point / 1000) % 60;
+            String maxMinPointStr = "";
+            String maxSecPointStr = "";
+
+            if(maxMinPoint < 10) {
+                maxMinPointStr = "0" + maxMinPoint + ":";
+            } else {
+                maxMinPointStr = maxMinPoint + ":";
+            }
+
+            if(maxSecPoint < 10) {
+                maxSecPointStr = "0" + maxSecPoint;
+            } else {
+                maxSecPointStr = String.valueOf(maxSecPoint);
+            }
+
+
+            mPlayProgressBar.setProgress(0);
+
             mMediaPlayer.start();
 
             mProgressHandler.sendEmptyMessageDelayed(0, 100);
@@ -269,8 +315,40 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
 
     private void startVideo(Uri fileUri) {
         mVideoView.setVideoURI(fileUri);
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                // 재생 시간 확인
+                int point = mp.getDuration();
 
+                Log.d(TAG, "video max point : " + point);
+
+                mPlayProgressBar.setMax(point);
+                int maxMinPoint = point / 1000 / 60;
+                int maxSecPoint = (point / 1000) % 60;
+                String maxMinPointStr = "";
+                String maxSecPointStr = "";
+
+                if(maxMinPoint < 10) {
+                    maxMinPointStr = "0" + maxMinPoint + ":";
+                } else {
+                    maxMinPointStr = maxMinPoint + ":";
+                }
+
+                if(maxSecPoint < 10) {
+                    maxSecPointStr = "0" + maxSecPoint;
+                } else {
+                    maxSecPointStr = String.valueOf(maxSecPoint);
+                }
+
+
+                mPlayProgressBar.setProgress(0);
+
+                mVideoView.start();
+
+                mProgressHandler2.sendEmptyMessageDelayed(0, 100);
+            }
+        });
         mFileName.setText(fileUri.getPath());
     }
 
@@ -287,5 +365,29 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
 
     public String explode(String word, String cutChar) {
         return "";
+    }
+
+    private void initMediaPlayer() {
+        if(mMediaPlayer == null) {
+            mMediaPlayer = new MediaPlayer();
+        } else {
+            mMediaPlayer.reset();
+        }
+
+
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        // 재생이 종료됨
+        
+        // 재생이 종료되면 즉시 SeekBar 메세지 핸들러를 호출한다.
+        mProgressHandler.sendEmptyMessageDelayed(0, 0);
+        
+        updateUI();
+    }
+
+    private void updateUI() {
+
     }
 }

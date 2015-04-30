@@ -25,6 +25,7 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
             "Chat",
             "Camera",
             "Media",
+            "Content Provider",
             "Other"
     };
     private ListView mListView;

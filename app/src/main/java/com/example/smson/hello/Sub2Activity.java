@@ -29,6 +29,7 @@ import com.example.smson.hello.challenge.challenge05.challenge05;
 import com.example.smson.hello.challenge.challenge06.challenge06Activity;
 import com.example.smson.hello.challenge.challenge07_08.CalendarActivity;
 import com.example.smson.hello.chat.client.ChatActivity;
+import com.example.smson.hello.contentprovider.ContentActivity;
 import com.example.smson.hello.database.dbtest1.TestDataBaseActivity;
 import com.example.smson.hello.database.dbtest2.DbManagerActivity;
 import com.example.smson.hello.intent.ActionPickActivity;
@@ -177,6 +178,12 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
     private static final Class[] MEDIA_CLASSES = {
             MediaPlayerActivity.class
     };
+    private static final String[] CONTENT_ITEMS = {
+            "주소록"
+    };
+    private static final Class[] CONTENT_CLASSES = {
+            ContentActivity.class
+    };
     private ListView mListView;
 
     @Override
@@ -236,6 +243,9 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case "Media":
                 result = new Pair(MEDIA_ITEMS, MEDIA_CLASSES);
+                break;
+            case "Content Provider":
+                result = new Pair(CONTENT_ITEMS, CONTENT_CLASSES);
                 break;
         }
         return result;
