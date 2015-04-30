@@ -166,6 +166,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
 
                 mAudioStat = 0;
                 mMediaPlayer.pause();
+                mProgressHandler2.sendEmptyMessageDelayed(0, 0);
             } else {
                 // 현 상태가 플레이면 멈춤을 하고 상태값 멈춤으로 변경
                 mVideoStat = 0;
@@ -185,6 +186,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
 
                 mVideoStat = 0;
                 mVideoView.pause();
+                mProgressHandler.sendEmptyMessageDelayed(0, 0);
             } else {
                 // 현 상태가 플레이면 멈춤을 하고 상태값 멈춤으로 변경
                 mAudioStat = 0;
@@ -207,9 +209,11 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
     private void statVideoSet(int stat) {
         if(stat == 0) {
             mVideoView.pause();
+            mProgressHandler2.sendEmptyMessageDelayed(0, 0);
             viewSwitchSet(0);
         } else {
             mVideoView.start();
+            mProgressHandler2.sendEmptyMessageDelayed(0, 100);
             viewSwitchSet(1);
         }
     }
@@ -218,9 +222,11 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
     private void statAudioSet(int stat) {
         if(stat == 0) {
             mMediaPlayer.pause();
+            mProgressHandler.sendEmptyMessageDelayed(0, 0);
             viewSwitchSet(0);
         } else {
             mMediaPlayer.start();
+            mProgressHandler.sendEmptyMessageDelayed(0, 100);
             viewSwitchSet(1);
         }
     }
@@ -329,13 +335,13 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
                 String maxMinPointStr = "";
                 String maxSecPointStr = "";
 
-                if(maxMinPoint < 10) {
+                if (maxMinPoint < 10) {
                     maxMinPointStr = "0" + maxMinPoint + ":";
                 } else {
                     maxMinPointStr = maxMinPoint + ":";
                 }
 
-                if(maxSecPoint < 10) {
+                if (maxSecPoint < 10) {
                     maxSecPointStr = "0" + maxSecPoint;
                 } else {
                     maxSecPointStr = String.valueOf(maxSecPoint);
