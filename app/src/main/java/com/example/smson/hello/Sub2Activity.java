@@ -36,6 +36,7 @@ import com.example.smson.hello.intent.ActionPickActivity;
 import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
 import com.example.smson.hello.multimedia.MediaPlayerActivity;
+import com.example.smson.hello.multimedia.music_player.MusicPlayerActivity;
 import com.example.smson.hello.other.TestSampleActivity;
 import com.example.smson.hello.other.bitmap.BitmapMainActivity;
 import com.example.smson.hello.other.event.TouchEventActivity;
@@ -173,10 +174,12 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             DbManagerActivity.class
     };
     private static final String[] MEDIA_ITEMS = {
-            "플레이어"
+            "플레이어",
+            "음악 플레이어"
     };
     private static final Class[] MEDIA_CLASSES = {
-            MediaPlayerActivity.class
+            MediaPlayerActivity.class,
+            MusicPlayerActivity.class
     };
     private static final String[] CONTENT_ITEMS = {
             "주소록"

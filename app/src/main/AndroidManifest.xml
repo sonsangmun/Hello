@@ -21,6 +21,7 @@
 
     <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <!-- 주소록 읽기 쓰기 권한 -->
@@ -270,12 +271,13 @@
         <activity
             android:name=".multimedia.MediaPlayerActivity"
             android:label="@string/title_activity_media_player" >
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="file"/>
-                <data android:mimeType="audio/*"/>
+
+                <data android:scheme="file" />
+                <data android:mimeType="audio/*" />
             </intent-filter>
         </activity>
 
@@ -284,10 +286,23 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+
         <activity
             android:name=".contentprovider.ContentActivity"
-            android:theme="@style/Theme.AppCompat"
-            android:label="@string/title_activity_content" >
+            android:label="@string/title_activity_content"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".multimedia.music_player.MusicPlayerActivity"
+            android:label="@string/title_activity_music_player" >
+        </activity>
+        <activity
+            android:name=".multimedia.video_player.VideoPlayerActivity"
+            android:label="@string/title_activity_video_player" >
+        </activity>
+        <activity
+            android:name=".multimedia.music_video_player.MusicVideoPlayerActivity"
+            android:label="@string/title_activity_music_video_player" >
         </activity>
     </application>
 

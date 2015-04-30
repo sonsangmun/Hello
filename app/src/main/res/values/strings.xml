@@ -94,4 +94,7 @@
     <string name="title_activity_camera_builtin">CameraBuiltinActivity</string>
     <string name="title_activity_media_player">MediaPlayerActivity</string>
     <string name="title_activity_content">ContentActivity</string>
+    <string name="title_activity_music_player">MusicPlayerActivity</string>
+    <string name="title_activity_video_player">VideoPlayerActivity</string>
+    <string name="title_activity_music_video_player">MusicVideoPlayerActivity</string>
 </resources>

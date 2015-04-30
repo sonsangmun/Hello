@@ -39,6 +39,9 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
     private TextView mFileName;
     private SeekBar mPlayProgressBar;
 
+    private int mMaxAudioPoint;
+    private int mMaxVideoPoint;
+
     // 플레이어
     private MediaPlayer mMediaPlayer;
     private VideoView mVideoView;
@@ -128,7 +131,10 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
                 // 동영상 아이콘은 off로 비활성화
                 mBtnVideoFilePick.setImageResource(R.drawable.video);
                 // 음악 관련 플레이/멈춤 버튼 처리
-                if(mMediaPlayer != null) viewSwitchSet(mAudioStat);
+                if(mMediaPlayer != null) {
+                    viewSwitchSet(mAudioStat);
+                    mPlayProgressBar.setMax(mMaxAudioPoint);
+                }
                 break;
             case R.id.btn_videoFilePick:
                 // FileChooser 사용
@@ -144,7 +150,10 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
                 // 음악 아이콘은 off로 비활성화
                 mBtnAudioFilePick.setImageResource(R.drawable.audio);
                 // 동영상 관련 플레이/멈춤 버튼 처리
-                if(mVideoView != null) viewSwitchSet(mVideoStat);
+                if(mVideoView != null) {
+                    viewSwitchSet(mVideoStat);
+                    mPlayProgressBar.setMax(mMaxVideoPoint);
+                }
                 break;
             case R.id.btn_player:
                 if(mStat == 0) {
@@ -287,11 +296,11 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         try {
             mMediaPlayer.setDataSource(getApplicationContext(), fileUri);
             mMediaPlayer.prepare();
-            int point = mMediaPlayer.getDuration();
-            mPlayProgressBar.setMax(point);
+            mMaxAudioPoint = mMediaPlayer.getDuration();
+            mPlayProgressBar.setMax(mMaxAudioPoint);
 
-            int maxMinPoint = point / 1000 / 60;
-            int maxSecPoint = (point / 1000) % 60;
+            int maxMinPoint = mMaxAudioPoint / 1000 / 60;
+            int maxSecPoint = (mMaxAudioPoint / 1000) % 60;
             String maxMinPointStr = "";
             String maxSecPointStr = "";
 
@@ -326,13 +335,13 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onPrepared(MediaPlayer mp) {
                 // 재생 시간 확인
-                int point = mp.getDuration();
+                mMaxVideoPoint = mp.getDuration();
 
-                Log.d(TAG, "video max point : " + point);
+                Log.d(TAG, "video max point : " + mMaxVideoPoint);
 
-                mPlayProgressBar.setMax(point);
-                int maxMinPoint = point / 1000 / 60;
-                int maxSecPoint = (point / 1000) % 60;
+                mPlayProgressBar.setMax(mMaxVideoPoint);
+                int maxMinPoint = mMaxVideoPoint / 1000 / 60;
+                int maxSecPoint = (mMaxVideoPoint / 1000) % 60;
                 String maxMinPointStr = "";
                 String maxSecPointStr = "";
 
@@ -374,16 +383,6 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         return "";
     }
 
-    private void initMediaPlayer() {
-        if(mMediaPlayer == null) {
-            mMediaPlayer = new MediaPlayer();
-        } else {
-            mMediaPlayer.reset();
-        }
-
-
-    }
-
     @Override
     public void onCompletion(MediaPlayer mp) {
         // 재생이 종료됨
@@ -391,11 +390,6 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         // 재생이 종료되면 즉시 SeekBar 메세지 핸들러를 호출한다.
         mProgressHandler.sendEmptyMessageDelayed(0, 0);
         
-        updateUI();
-    }
-
-    private void updateUI() {
-
     }
 
     // SeekBar의 드래깅
@@ -410,6 +404,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
                 mVideoView.start();
             }
         }
+        Toast.makeText(getApplicationContext(), "드래깅", Toast.LENGTH_SHORT).show();
     }
 
     // SeekBar의 터치 시작
@@ -420,6 +415,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         } else {
             mVideoView.pause();
         }
+        Toast.makeText(getApplicationContext(), "터치시작", Toast.LENGTH_SHORT).show();
     }
 
     // SeekBar의 터치 종료
@@ -434,5 +430,6 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
                 mVideoView.start();
             }
         }
+        Toast.makeText(getApplicationContext(), "터치종료", Toast.LENGTH_SHORT).show();
     }
 }
