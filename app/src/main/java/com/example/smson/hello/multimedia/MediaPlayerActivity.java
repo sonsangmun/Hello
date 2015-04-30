@@ -20,7 +20,7 @@ import com.example.smson.hello.R;
 
 import java.io.IOException;
 
-public class MediaPlayerActivity extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
+public class MediaPlayerActivity extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener {
 
     private static final int REQUEST_CODE_AUDIO = 0;
     private static final int REQUEST_CODE_VIDEO = 1;
@@ -107,6 +107,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
         mBtnAudioFilePick.setOnClickListener(this);
         mBtnVideoFilePick.setOnClickListener(this);
         mBtnPlayer.setOnClickListener(this);
+        mPlayProgressBar.setOnSeekBarChangeListener(this);
     }
 
     @Override
@@ -395,5 +396,43 @@ public class MediaPlayerActivity extends AppCompatActivity implements View.OnCli
 
     private void updateUI() {
 
+    }
+
+    // SeekBar의 드래깅
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if(fromUser) {
+            if(mStat == 0) {
+                mMediaPlayer.seekTo(mPlayProgressBar.getProgress());
+                mMediaPlayer.start();
+            } else {
+                mVideoView.seekTo(mPlayProgressBar.getProgress());
+                mVideoView.start();
+            }
+        }
+    }
+
+    // SeekBar의 터치 시작
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        if(mStat == 0) {
+            mMediaPlayer.pause();
+        } else {
+            mVideoView.pause();
+        }
+    }
+
+    // SeekBar의 터치 종료
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        if(mStat == 0) {
+            if(mMediaPlayer.isPlaying()) {
+                mMediaPlayer.start();
+            }
+        } else {
+            if(mVideoView.isPlaying()) {
+                mVideoView.start();
+            }
+        }
     }
 }
