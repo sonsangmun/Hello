@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -15,10 +15,8 @@ import android.widget.VideoView;
 
 import com.example.smson.hello.R;
 
-import java.io.IOException;
-
-public class VideoPlayerActivity extends ActionBarActivity implements View.OnClickListener {
-    private static final int REQUEST_CODE_VIDEO = 1;
+public class VideoPlayerActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+    private static final int REQUEST_CODE_VIDEO = 0;
     private static final int VIDEO_PLAY = 1;
     private static final int VIDEO_PAUSE = 0;
     private TextView mfileName;
@@ -71,10 +69,10 @@ public class VideoPlayerActivity extends ActionBarActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ibtn_audio_filepick:
+            case R.id.btn_video_file_pick:
                 videoFilePick();
                 break;
-            case R.id.ibtn_player:
+            case R.id.btn_player:
                 if(mVideoPlayer != null) pauseVideo();
                 break;
         }
@@ -141,13 +139,6 @@ public class VideoPlayerActivity extends ActionBarActivity implements View.OnCli
                 mProgressHandler.sendEmptyMessageDelayed(0, 100);
             }
         });
-    }
-
-    @Override
-    public void onCompletion(MediaPlayer mp) {
-        // SeekBar가 마지막 지점까지 도달한 경우
-        mPlayStat = 1;
-        playerButton();
     }
 
     @Override
