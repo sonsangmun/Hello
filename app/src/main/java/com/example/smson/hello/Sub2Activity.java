@@ -32,15 +32,18 @@ import com.example.smson.hello.chat.client.ChatActivity;
 import com.example.smson.hello.contentprovider.ContentActivity;
 import com.example.smson.hello.database.dbtest1.TestDataBaseActivity;
 import com.example.smson.hello.database.dbtest2.DbManagerActivity;
+import com.example.smson.hello.file_manager.FileManagerActivity;
 import com.example.smson.hello.intent.ActionPickActivity;
 import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
 import com.example.smson.hello.multimedia.MediaPlayerActivity;
+import com.example.smson.hello.multimedia.media_file.MediaFileListActivity;
 import com.example.smson.hello.multimedia.music_player.MusicPlayerActivity;
 import com.example.smson.hello.multimedia.video_player.VideoPlayerActivity;
 import com.example.smson.hello.other.TestSampleActivity;
 import com.example.smson.hello.other.bitmap.BitmapMainActivity;
 import com.example.smson.hello.other.event.TouchEventActivity;
+import com.example.smson.hello.other.file_list.FileList;
 import com.example.smson.hello.other.gallery.GalleryActivity;
 import com.example.smson.hello.other.google_map.MapActivity;
 import com.example.smson.hello.other.graphic.GraphicActivity;
@@ -126,7 +129,8 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             "spinner",
             "Service",
             "gallery",
-            "SurfaceView"
+            "SurfaceView",
+            "File List"
     };
     private static final Class[] OTHER_CLASSES = {
             TestSampleActivity.class,
@@ -138,7 +142,8 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             SpinnerExamActivity.class,
             KitchenTimerActivity.class,
             GalleryActivity.class,
-            GameActivity.class
+            GameActivity.class,
+            FileList.class
     };
     private static final String[] TOURLIST_ITEMS = {
             "Tour List"
@@ -177,18 +182,26 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
     private static final String[] MEDIA_ITEMS = {
             "플레이어",
             "음악 플레이어",
-            "비디오 플레이어"
+            "비디오 플레이어",
+            "미디어 파일목록"
     };
     private static final Class[] MEDIA_CLASSES = {
             MediaPlayerActivity.class,
             MusicPlayerActivity.class,
-            VideoPlayerActivity.class
+            VideoPlayerActivity.class,
+            MediaFileListActivity.class
     };
     private static final String[] CONTENT_ITEMS = {
             "주소록"
     };
     private static final Class[] CONTENT_CLASSES = {
             ContentActivity.class
+    };
+    private static final String[] FILE_ITEMS = {
+            "파일 관리자"
+    };
+    private static final Class[] FILE_CLASSES = {
+            FileManagerActivity.class
     };
     private ListView mListView;
 
@@ -252,6 +265,9 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case "Content Provider":
                 result = new Pair(CONTENT_ITEMS, CONTENT_CLASSES);
+                break;
+            case "File Manager":
+                result = new Pair(FILE_ITEMS, FILE_CLASSES);
                 break;
         }
         return result;

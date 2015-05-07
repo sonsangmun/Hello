@@ -26,6 +26,7 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
             "Camera",
             "Media",
             "Content Provider",
+            "File Manager",
             "Other"
     };
     private ListView mListView;

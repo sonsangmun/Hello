@@ -304,6 +304,19 @@
             android:name=".multimedia.music_video_player.MusicVideoPlayerActivity"
             android:label="@string/title_activity_music_video_player" >
         </activity>
+        <activity
+            android:name=".other.file_list.FileList"
+            android:label="@string/title_activity_file_list" >
+        </activity>
+        <activity
+            android:name=".multimedia.media_file.MediaFileListActivity"
+            android:label="@string/title_activity_media_file_list" >
+        </activity>
+        <activity
+            android:name=".file_manager.FileManagerActivity"
+            android:label="@string/title_activity_file_manager"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
     </application>
 
 </manifest>

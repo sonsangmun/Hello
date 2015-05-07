@@ -97,4 +97,7 @@
     <string name="title_activity_music_player">MusicPlayerActivity</string>
     <string name="title_activity_video_player">VideoPlayerActivity</string>
     <string name="title_activity_music_video_player">MusicVideoPlayerActivity</string>
+    <string name="title_activity_file_list">FileList</string>
+    <string name="title_activity_media_file_list">MediaFileListActivity</string>
+    <string name="title_activity_file_manager">FileManagerActivity</string>
 </resources>
