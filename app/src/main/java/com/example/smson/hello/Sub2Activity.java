@@ -36,6 +36,7 @@ import com.example.smson.hello.file_manager.FileManagerActivity;
 import com.example.smson.hello.intent.ActionPickActivity;
 import com.example.smson.hello.listview.GridActivity2Activity;
 import com.example.smson.hello.listview.LiveView02Activity;
+import com.example.smson.hello.location.LocationActivity;
 import com.example.smson.hello.multimedia.MediaPlayerActivity;
 import com.example.smson.hello.multimedia.media_file.MediaFileListActivity;
 import com.example.smson.hello.multimedia.music_player.MusicPlayerActivity;
@@ -130,7 +131,8 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             "Service",
             "gallery",
             "SurfaceView",
-            "File List"
+            "File List",
+            "Location"
     };
     private static final Class[] OTHER_CLASSES = {
             TestSampleActivity.class,
@@ -143,7 +145,8 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             KitchenTimerActivity.class,
             GalleryActivity.class,
             GameActivity.class,
-            FileList.class
+            FileList.class,
+            LocationActivity.class
     };
     private static final String[] TOURLIST_ITEMS = {
             "Tour List"
