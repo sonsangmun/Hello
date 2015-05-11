@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class FileManagerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     public static final String sPathSdcard = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -44,6 +45,7 @@ public class FileManagerActivity extends AppCompatActivity implements AdapterVie
 
     // 현재의 full path
     private String mCurrentPath = "";
+    private String TAG = FileManagerActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,7 +156,21 @@ public class FileManagerActivity extends AppCompatActivity implements AdapterVie
             } else {
                 try {
                     // 파일인 경우
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromFile(fileData));
+                    Uri fromFilePath = Uri.fromFile(fileData);
+                    Intent intent = new Intent(Intent.ACTION_DEFAULT, fromFilePath);
+
+//                    String[] extFile = explode(fromFilePath.toString(), ".");
+//                    String extFileName = extFile[extFile.length -1];
+//                    Log.d(TAG, "파일 확장명 : " + extFile[1]);
+//
+//                    if("jpg".equals(extFileName)) {
+//
+//                    } else if("mp4".equals(extFileName)){
+//
+//                    } else {
+//                        intent.setType("aud")
+//                    }
+
                     startActivity(intent);
                 } catch(ActivityNotFoundException e) {
                     Toast.makeText(getApplicationContext(), "실행 할 앱이 없습니다.", Toast.LENGTH_SHORT).show();
@@ -197,5 +213,16 @@ public class FileManagerActivity extends AppCompatActivity implements AdapterVie
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public String[] explode(String word, String explodeChar){
+        StringTokenizer st = new StringTokenizer(word, explodeChar);
+        // 토큰 저장 배열
+        String[] subStr = new String[st.countTokens()];
+        for(int i = 0; i < subStr.length; i++){
+            subStr[i] = st.nextToken();
+        }
+
+        return subStr;
     }
 }

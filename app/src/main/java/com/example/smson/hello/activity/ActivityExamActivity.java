@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sangmun.myandroidlibrary.MainActivity;
 import com.example.smson.hello.R;
 
 /**
@@ -43,7 +44,7 @@ public class ActivityExamActivity extends ActionBarActivity {
         mMoveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TargetActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
