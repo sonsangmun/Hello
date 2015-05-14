@@ -34,6 +34,9 @@
     <!-- 3G, LTE, Wifi, GPS 를 통한 위치 정보 얻기 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!-- 진동 권한 -->
+    <uses-permission android:name="ANDROID.PERMISSION.VIBRATE" />
+
     <!-- package 의 com.example.smson.hello 는 경로로도 사용된다. -->
     <application
         android:allowBackup="true"
@@ -326,6 +329,10 @@
         <activity
             android:name=".location.LocationActivity"
             android:label="@string/title_activity_location" >
+        </activity>
+        <activity
+            android:name=".notification.NotificationActivity"
+            android:label="@string/title_activity_notification" >
         </activity>
     </application>
 

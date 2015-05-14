@@ -41,6 +41,7 @@ import com.example.smson.hello.multimedia.MediaPlayerActivity;
 import com.example.smson.hello.multimedia.media_file.MediaFileListActivity;
 import com.example.smson.hello.multimedia.music_player.MusicPlayerActivity;
 import com.example.smson.hello.multimedia.video_player.VideoPlayerActivity;
+import com.example.smson.hello.notification.NotificationActivity;
 import com.example.smson.hello.other.TestSampleActivity;
 import com.example.smson.hello.other.bitmap.BitmapMainActivity;
 import com.example.smson.hello.other.event.TouchEventActivity;
@@ -132,7 +133,8 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             "gallery",
             "SurfaceView",
             "File List",
-            "Location"
+            "Location",
+            "Notification"
     };
     private static final Class[] OTHER_CLASSES = {
             TestSampleActivity.class,
@@ -146,7 +148,8 @@ public class Sub2Activity extends AppCompatActivity implements AdapterView.OnIte
             GalleryActivity.class,
             GameActivity.class,
             FileList.class,
-            LocationActivity.class
+            LocationActivity.class,
+            NotificationActivity.class
     };
     private static final String[] TOURLIST_ITEMS = {
             "Tour List"
